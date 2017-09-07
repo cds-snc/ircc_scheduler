@@ -14,7 +14,7 @@ yarn test
 To explore the components and their documentation, run the following commands:
 
 ```sh
-git clone https://github.com/cds-snc/gcui.git && cd gcui
+git clone https://github.com/cds-snc/fee_wizard.git && cd fee_wizard
 yarn && yarn storybook
 ```
 
