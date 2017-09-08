@@ -2,10 +2,7 @@ const {
   GraphQLSchema,
   GraphQLObjectType,
   GraphQLString,
-  GraphQLList,
-  GraphQLID,
   GraphQLFloat,
-  GraphQLInt,
   GraphQLNonNull,
 } = require('graphql')
 const convert = require('xml-js')
@@ -64,7 +61,7 @@ var mutation = new GraphQLObjectType({
                 pan: { _text: args.primaryAccountNumber },
                 expdate: { _text: args.expiry.replace('/', '') },
                 dynamic_description: { _text: args.description },
-                crypt_type: { _text: '7' }, //SSL-enabled vendor
+                crypt_type: { _text: '7' }, // SSL-enabled vendor
                 cust_id: { _text: 'cust 1' },
               },
             },

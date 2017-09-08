@@ -1,11 +1,7 @@
 const {
   GraphQLObjectType,
   GraphQLString,
-  GraphQLList,
-  GraphQLID,
-  GraphQLFloat,
   GraphQLInt,
-  GraphQLNonNull,
 } = require('graphql')
 
 // See examples/receipt.xml
@@ -130,13 +126,6 @@ const Receipt = new GraphQLObjectType({
       description: 'corporate card',
       resolve: source => {
         return source.response.receipt.CorporateCard._text
-      },
-    },
-    bank_totals: {
-      type: GraphQLString,
-      description: 'bank totals',
-      resolve: source => {
-        return source.response.receipt.BankTotals._text
       },
     },
     card_level_result: {
