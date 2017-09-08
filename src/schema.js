@@ -11,6 +11,7 @@ const {
 const convert = require('xml-js')
 const fetch = require('isomorphic-fetch')
 const Receipt = require('./types/Receipt').default
+const PAN = require('./types/PAN').default
 
 // XXX: Is it not possible to have a mutation only schema?
 var query = new GraphQLObjectType({
@@ -39,7 +40,7 @@ var mutation = new GraphQLObjectType({
         },
         primaryAccountNumber: {
           description: 'the credit card number', // TODO: I18n this.
-          type: new GraphQLNonNull(GraphQLString),
+          type: new GraphQLNonNull(PAN),
         },
         amount: {
           description: 'the amount of the the transaction', // TODO: I18n this.

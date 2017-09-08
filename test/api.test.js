@@ -58,6 +58,26 @@ describe('GraphQL API', () => {
         let { purchase } = response.body.data
         expect(purchase.message).toMatch(/APPROVED*/)
       })
+
+      it('rejects bad credit card numbers', async () => {
+        let response = await request(app)
+          .post('/graphql')
+          .set('Content-Type', 'application/graphql; charset=utf-8').send(`
+            mutation {
+              purchase(
+                amount: 1.00
+                orderID: "${'ircc' + Math.random()}"
+                expiry: "16/11"
+                description: "INVOICE001"
+                primaryAccountNumber: "1324567891011121"
+              ){
+                message 
+               }
+            }
+        `)
+        let { errors } = response.body
+        expect(errors[0].message).toMatch(/invalid value/)
+      })
     })
   })
 })
