@@ -6,7 +6,6 @@ const {
   GraphQLNonNull,
 } = require('graphql')
 const convert = require('xml-js')
-const fetch = require('isomorphic-fetch')
 const Receipt = require('./types/Receipt').default
 const PAN = require('./types/PAN').default
 
@@ -69,7 +68,7 @@ var mutation = new GraphQLObjectType({
           { compact: true },
         )
 
-        let response = await fetch(
+        let response = await context.fetch(
           `https://${context.apiHost}/gateway2/servlet/MpgRequest`,
           {
             method: 'post',

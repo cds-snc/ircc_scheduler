@@ -2,8 +2,16 @@ const request = require('supertest')
 const graphqlHTTP = require('express-graphql')
 const schema = require('../src/schema').default
 const express = require('express')
-
+const purchaseResponse = require('./data/purchaseResponse').default
 const server = express()
+
+// resolver code uses context.fetch. We are mocking it here to prevent the test
+// suite from actually hitting the API.
+const fauxFetch = jest.fn(() => {
+  return Promise.resolve({
+    text: jest.fn(() => Promise.resolve(purchaseResponse)),
+  })
+})
 
 let app
 
@@ -14,6 +22,7 @@ describe('GraphQL API', () => {
       graphqlHTTP({
         schema,
         context: {
+          fetch: fauxFetch,
           apiToken: 'yesguy',
           apiHost: 'esqa.moneris.com',
           storeID: 'store3',
