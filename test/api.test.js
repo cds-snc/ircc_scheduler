@@ -1,18 +1,8 @@
 const request = require('supertest')
-const purchaseResponse = require('./data/purchaseResponse').default
-const express = require('express')
-const server = express()
-const graphqlHTTP = require('express-graphql')
-const createSchema = require('../src/schema').default
 const i18next = require('i18next')
+const purchaseResponse = require('./data/purchaseResponse').default
+const Server = require('../src/server').default
 const messages = require('../src/messages').default
-const { LanguageDetector } = require('i18next-express-middleware')
-
-const detector = new LanguageDetector(
-  i18next.services,
-  {}, // detector options
-  { fallbackLng: 'en' }, // allOptions
-)
 
 // resolver code uses context.fetch. We are mocking it here to prevent the test
 // suite from actually hitting the API.
@@ -30,30 +20,12 @@ const en = i18next.getFixedT('en')
 
 describe('GraphQL API', () => {
   beforeAll(async () => {
-    app = server.use(
-      '/graphql',
-      graphqlHTTP((request, response) => {
-        let lang = detector.detect(request, response)
-        return new Promise((resolve, reject) => {
-          i18next.changeLanguage(lang, (err, t) => {
-            if (err) {
-              reject(new Error('Language detection failed.'))
-            } else {
-              resolve({
-                schema: createSchema(t),
-                context: {
-                  fetch: fauxFetch,
-                  apiToken: 'yesguy',
-                  apiHost: 'esqa.moneris.com',
-                  storeID: 'store3',
-                },
-                graphiql: true,
-              })
-            }
-          })
-        })
-      }),
-    )
+    app = Server({
+      fetch: fauxFetch,
+      apiToken: 'yesguy',
+      apiHost: 'esqa.moneris.com',
+      storeID: 'store3',
+    })
   })
 
   it('is properly mounted at /graphql', async () => {
