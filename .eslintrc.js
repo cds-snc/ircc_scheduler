@@ -5,6 +5,7 @@ module.exports = {
     'jest/globals': true,
   },
   rules: {
-    "comma-dangle": ["error", "always-multiline"]
+    "comma-dangle": ["error", "always-multiline"],
+    "no-unused-vars": ["error", { "argsIgnorePattern": "_" }]
   }
 }

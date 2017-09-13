@@ -1,9 +1,18 @@
 const request = require('supertest')
-const graphqlHTTP = require('express-graphql')
-const schema = require('../src/schema').default
-const express = require('express')
 const purchaseResponse = require('./data/purchaseResponse').default
+const express = require('express')
 const server = express()
+const graphqlHTTP = require('express-graphql')
+const createSchema = require('../src/schema').default
+const i18next = require('i18next')
+const messages = require('../src/messages').default
+const { LanguageDetector } = require('i18next-express-middleware')
+
+const detector = new LanguageDetector(
+  i18next.services,
+  {}, // detector options
+  { fallbackLng: 'en' }, // allOptions
+)
 
 // resolver code uses context.fetch. We are mocking it here to prevent the test
 // suite from actually hitting the API.
@@ -15,18 +24,34 @@ const fauxFetch = jest.fn(() => {
 
 let app
 
+i18next.init(messages)
+const fr = i18next.getFixedT('fr')
+const en = i18next.getFixedT('en')
+
 describe('GraphQL API', () => {
   beforeAll(async () => {
     app = server.use(
       '/graphql',
-      graphqlHTTP({
-        schema,
-        context: {
-          fetch: fauxFetch,
-          apiToken: 'yesguy',
-          apiHost: 'esqa.moneris.com',
-          storeID: 'store3',
-        },
+      graphqlHTTP((request, response) => {
+        let lang = detector.detect(request, response)
+        return new Promise((resolve, reject) => {
+          i18next.changeLanguage(lang, (err, t) => {
+            if (err) {
+              reject(new Error('Language detection failed.'))
+            } else {
+              resolve({
+                schema: createSchema(t),
+                context: {
+                  fetch: fauxFetch,
+                  apiToken: 'yesguy',
+                  apiHost: 'esqa.moneris.com',
+                  storeID: 'store3',
+                },
+                graphiql: true,
+              })
+            }
+          })
+        })
       }),
     )
   })
@@ -44,6 +69,81 @@ describe('GraphQL API', () => {
         }
     `)
     expect(response.status).toEqual(200)
+  })
+
+  describe('I18n', () => {
+    it('shows purchase description in the language specified by the Accept-Language header', async () => {
+      let lang = 'fr-CA'
+      let response = await request(app)
+        .post('/graphql')
+        .set('Accept-Language', lang)
+        .set('Content-Type', 'application/graphql; charset=utf-8').send(`
+        query {
+          __schema {
+              mutationType {
+                fields {
+                  name
+                  description
+                }
+              }
+            }
+          }
+        `)
+      let { mutationType } = response.body.data.__schema
+      let [first, ..._] = mutationType.fields
+      expect(first.description).toEqual(
+        fr('mutation.fields.purchase.description'),
+      )
+    })
+
+    it('it translates the arg descriptions', async () => {
+      let lang = 'fr-CA'
+      let response = await request(app)
+        .post('/graphql')
+        .set('Accept-Language', lang)
+        .set('Content-Type', 'application/graphql; charset=utf-8').send(`
+        query {
+          __schema {
+              mutationType {
+                fields {
+                  name
+                  args {
+                    name
+                    description
+                  }
+                }
+              }
+            }
+          }
+        `)
+      let { mutationType } = response.body.data.__schema
+      var [purchase, ..._] = mutationType.fields
+      var [expiry, ..._] = purchase.args // expiry is the first argument
+      expect(expiry.description).toEqual(
+        fr('mutation.fields.purchase.args.expiry'),
+      )
+    })
+
+    it('defaults to the en locale if no Accept-Language header is sent', async () => {
+      let response = await request(app)
+        .post('/graphql')
+        .set('Content-Type', 'application/graphql; charset=utf-8').send(`
+        query {
+          __schema {
+              mutationType {
+                fields {
+                  name
+                  description
+                }
+              }
+            }
+          }
+        `)
+      let [purchase, ..._] = response.body.data.__schema.mutationType.fields
+      expect(purchase.description).toEqual(
+        en('mutation.fields.purchase.description'),
+      )
+    })
   })
 
   describe('Mutations', () => {
