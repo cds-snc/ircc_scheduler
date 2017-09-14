@@ -6,8 +6,13 @@ import Header from '../Header'
 
 describe('<Header />', () => {
   it('can be rendered', () => {
+    let wrapper = shallow(<Header title="Foo" />)
+    expect(toJSON(wrapper)).toMatchSnapshot()
+  })
+
+  it('displays a title supplied by props', () => {
     let wrapper = mount(<Header title="Foo" />)
-    expect(wrapper.find('h2').text()).toEqual('Foo')
+    expect(wrapper.text()).toEqual('Foo')
   })
 
   it('displays a title supplied by props', () => {

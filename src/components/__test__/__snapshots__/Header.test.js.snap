@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> can be rendered 1`] = `
+<styled.div>
+  <styled.h2>
+    Foo
+  </styled.h2>
+</styled.div>
+`;
