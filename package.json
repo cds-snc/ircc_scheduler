@@ -6,6 +6,8 @@
   "author": "Mike Williamson",
   "license": "MIT",
   "scripts": {
+    "start": "node index.js",
+    "dev": "webpack-dev-server --port=9000",
     "test": "jest",
     "build": "webpack",
     "lint": "./node_modules/eslint/bin/eslint.js src/**",
@@ -31,12 +33,16 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.3.0",
     "eslint-plugin-standard": "^3.0.1",
+    "html-webpack-plugin": "^2.30.1",
+    "html-webpack-react-root-plugin": "^0.9.0",
     "jest": "^20.0.4",
     "jest-styled-components": "^4.4.1",
     "react-test-renderer": "^15.6.1",
-    "webpack": "^3.5.5"
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.8.2"
   },
   "dependencies": {
+    "express": "^4.15.4",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
