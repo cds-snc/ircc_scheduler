@@ -15,7 +15,7 @@ const Panel = ({ title, width, children }) =>
   </Container>
 
 Panel.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   width: PropTypes.string,
   children: PropTypes.object,
 }

@@ -13,15 +13,14 @@ const Div = styled.div`
   border-top-left-radius: 3px;
 `
 
-const Header = ({ title }) =>
+const Header = ({ title }) => (
   <Div>
-    <Title>
-      {title}
-    </Title>
+    <Title>{title}</Title>
   </Div>
+)
 
 Header.propTypes = {
-  title: PropTypes.string,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }
 
 export default Header

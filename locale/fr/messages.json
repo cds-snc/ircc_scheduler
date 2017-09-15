@@ -1,0 +1,11 @@
+{
+  "Pay your fees": {
+    "translation": "Payez vos frais",
+    "origin": [
+      [
+        "src/index.js",
+        19
+      ]
+    ]
+  }
+}
