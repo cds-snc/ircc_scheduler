@@ -2,6 +2,14 @@
 # yarn lockfile v1
 
 
+"@cdssnc/gcui@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@cdssnc/gcui/-/gcui-0.0.10.tgz#3db2b9df5c42b2eaa5b525cd81cc654da93e3854"
+  dependencies:
+    react "^15.6.1"
+    react-dom "^15.6.1"
+    styled-components "^2.1.1"
+
 "@hypnosphi/fuse.js@^3.0.9":
   version "3.0.9"
   resolved "https://registry.yarnpkg.com/@hypnosphi/fuse.js/-/fuse.js-3.0.9.tgz#ea99f6121b4a8f065b4c71f85595db2714498807"
@@ -2490,6 +2498,10 @@ dot-prop@^4.1.0:
   dependencies:
     is-obj "^1.0.0"
 
+downshift@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/downshift/-/downshift-1.6.0.tgz#2e2dcd442bcaf825e9f441e1522d9d74b929fd40"
+
 ecc-jsbn@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.1.tgz#0fc73a9ed5f0d53c38193398523ef7e543777505"
@@ -3472,9 +3484,9 @@ html-webpack-plugin@^2.30.1:
     pretty-error "^2.0.2"
     toposort "^1.0.0"
 
-html-webpack-react-root-plugin@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/html-webpack-react-root-plugin/-/html-webpack-react-root-plugin-0.9.0.tgz#2af68e193423cedad2e8501100c59094dc2f3470"
+html-webpack-template@^5.6.0:
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/html-webpack-template/-/html-webpack-template-5.6.0.tgz#6cdb96b680ebd2a633c869b7a6ab413aa2a91218"
 
 htmlparser2@^3.9.1:
   version "3.9.2"
@@ -6611,7 +6623,7 @@ style-loader@^0.17.0:
   dependencies:
     loader-utils "^1.0.2"
 
-styled-components@^2.1.2:
+styled-components@^2.1.1, styled-components@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-2.1.2.tgz#bb419978e1287c5d0d88fa9106b2dd75f66a324c"
   dependencies:

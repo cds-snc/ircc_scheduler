@@ -1,1 +1,1 @@
-module.exports={l:{"p":function(n,ord){if(ord)return n==1?"one":"other";return n>=0&&n<2?"one":"other"}},m:{"Pay your fees":"Payez vos frais"}};
+module.exports={l:{"p":function(n,ord){if(ord)return n==1?"one":"other";return n>=0&&n<2?"one":"other"}},m:{"How to pay your fees":"Comment payer vos frais","Pay my fees online":"Payer mes frais en ligne","Jobs":"Emplois","Immigration":"Immigration","Travel":"Voyage","Business":"Entreprises","Benefits":"Prestations","Health":"Sant\xE9","Taxes":"Imp\xF4ts","More services":"Autres services","Pay your fees":"Payez vos frais"}};

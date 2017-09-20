@@ -1,6 +1,5 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ReactRootPlugin = require('html-webpack-react-root-plugin')
 
 module.exports = env => {
   return {
@@ -9,7 +8,10 @@ module.exports = env => {
       filename: 'bundle.js',
       path: path.join(__dirname, 'dist'),
     },
-    plugins: [new HtmlWebpackPlugin(), new ReactRootPlugin()],
+    plugins: [new HtmlWebpackPlugin({
+			template: require('html-webpack-template'),
+			appMountId: 'app',
+		})],
     module: {
       loaders: [
         { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
