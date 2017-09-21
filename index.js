@@ -8,4 +8,4 @@ const server = Server({
   storeID: process.env.STORE_ID,
 })
 
-server.listen(3000)
+server.listen(3001)
