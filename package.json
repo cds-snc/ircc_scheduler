@@ -8,7 +8,7 @@
   "scripts": {
     "test": "jest",
     "lint": "./node_modules/eslint/bin/eslint.js src/**",
-    "dockerize": "yarn run build && docker build -t cdssnc/ircc_backend .",
+    "dockerize": "docker build -t cdssnc/ircc_backend .",
     "start": "node index.js"
   },
   "devDependencies": {
