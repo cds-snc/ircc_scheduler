@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<request>
+  <store_id>store3</store_id>
+  <api_token>yesguy</api_token>
+  <purchase>
+    <order_id>test_python-1504792469.72</order_id>
+    <amount>1.00</amount>
+    <pan>4242424242424242</pan>
+    <expdate>0909</expdate>
+    <crypt_type>7</crypt_type>
+    <cust_id>cust 1</cust_id>
+    <cust_info>
+      <billing>
+        <first_name>first_name</first_name>
+        <last_name>last_name</last_name>
+        <company_name>company_name</company_name>
+        <address>address</address>
+        <city>city</city>
+        <province>province</province>
+        <postal_code>postal_code</postal_code>
+        <country>country</country>
+        <phone_number>phone_number</phone_number>
+        <fax>fax</fax>
+        <tax1>tax1</tax1>
+        <tax2>tax2</tax2>
+        <tax3>tax3</tax3>
+        <shipping_cost>shipping_cost</shipping_cost>
+      </billing>
+      <shipping>
+        <first_name>first_name</first_name>
+        <last_name>last_name</last_name>
+        <company_name>company_name</company_name>
+        <address>address</address>
+        <city>city</city>
+        <province>province</province>
+        <postal_code>postal_code</postal_code>
+        <country>country</country>
+        <phone_number>phone_number</phone_number>
+        <fax>fax</fax>
+        <tax1>tax1</tax1>
+        <tax2>tax2</tax2>
+        <tax3>tax3</tax3>
+        <shipping_cost>shipping_cost</shipping_cost>
+      </shipping>
+      <email>email@abc.com</email>
+      <instructions>take it slow</instructions>
+      <item>
+        <name>item 123</name>
+        <quantity>1</quantity>
+        <product_code>4527182-90123</product_code>
+        <extended_amount>5.00</extended_amount>
+      </item>
+      <item>
+        <name>item 234</name>
+        <quantity>2</quantity>
+        <product_code>4527182-90234</product_code>
+        <extended_amount>4.00</extended_amount>
+      </item>
+      <item>
+        <name>item 345</name>
+        <quantity>3</quantity>
+        <product_code>4527182-90345</product_code>
+        <extended_amount>3.00</extended_amount>
+      </item>
+    </cust_info>
+    <cvd_info>
+      <cvd_indicator>1</cvd_indicator>
+      <cvd_value>123</cvd_value>
+    </cvd_info>
+    <avs_info>
+      <avs_street_number>123</avs_street_number>
+      <avs_street_name>Main St</avs_street_name>
+      <avs_zipcode>a1a2b2</avs_zipcode>
+    </avs_info>
+  </purchase>
+</request>
