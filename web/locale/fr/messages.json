@@ -1,0 +1,102 @@
+{
+  "How to pay your fees": {
+    "translation": "Comment payer vos frais",
+    "origin": [
+      [
+        "src/index.js",
+        141
+      ]
+    ]
+  },
+  "Pay my fees online": {
+    "translation": "Payer mes frais en ligne",
+    "origin": [
+      [
+        "src/index.js",
+        142
+      ]
+    ]
+  },
+  "Jobs": {
+    "translation": "Emplois",
+    "origin": [
+      [
+        "src/index.js",
+        90
+      ]
+    ]
+  },
+  "Immigration": {
+    "translation": "Immigration",
+    "origin": [
+      [
+        "src/index.js",
+        96
+      ]
+    ]
+  },
+  "Travel": {
+    "translation": "Voyage",
+    "origin": [
+      [
+        "src/index.js",
+        102
+      ]
+    ]
+  },
+  "Business": {
+    "translation": "Entreprises",
+    "origin": [
+      [
+        "src/index.js",
+        108
+      ]
+    ]
+  },
+  "Benefits": {
+    "translation": "Prestations",
+    "origin": [
+      [
+        "src/index.js",
+        114
+      ]
+    ]
+  },
+  "Health": {
+    "translation": "Santé",
+    "origin": [
+      [
+        "src/index.js",
+        120
+      ]
+    ]
+  },
+  "Taxes": {
+    "translation": "Impôts",
+    "origin": [
+      [
+        "src/index.js",
+        126
+      ]
+    ]
+  },
+  "More services": {
+    "translation": "Autres services",
+    "origin": [
+      [
+        "src/index.js",
+        132
+      ]
+    ]
+  },
+  "Pay your fees": {
+    "translation": "Payez vos frais",
+    "origin": [
+      [
+        "src/index.js",
+        129
+      ]
+    ],
+    "obsolete": true
+  }
+}

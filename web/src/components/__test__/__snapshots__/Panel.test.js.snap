@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Panel /> can be rendered 1`] = `
+<styled.div>
+  <Header
+    title="How to pay your fees"
+  />
+  <styled.div />
+</styled.div>
+`;

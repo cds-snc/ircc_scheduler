@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CentredSection /> can be rendered 1`] = `
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 61%;
+}
+
+<section
+  className="c0"
+/>
+`;

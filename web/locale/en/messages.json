@@ -1,0 +1,102 @@
+{
+  "How to pay your fees": {
+    "translation": "",
+    "origin": [
+      [
+        "src/index.js",
+        141
+      ]
+    ]
+  },
+  "Pay my fees online": {
+    "translation": "",
+    "origin": [
+      [
+        "src/index.js",
+        142
+      ]
+    ]
+  },
+  "Jobs": {
+    "translation": "Jobs",
+    "origin": [
+      [
+        "src/index.js",
+        90
+      ]
+    ]
+  },
+  "Immigration": {
+    "translation": "Immigration",
+    "origin": [
+      [
+        "src/index.js",
+        96
+      ]
+    ]
+  },
+  "Travel": {
+    "translation": "Travel",
+    "origin": [
+      [
+        "src/index.js",
+        102
+      ]
+    ]
+  },
+  "Business": {
+    "translation": "Business",
+    "origin": [
+      [
+        "src/index.js",
+        108
+      ]
+    ]
+  },
+  "Benefits": {
+    "translation": "Benefits",
+    "origin": [
+      [
+        "src/index.js",
+        114
+      ]
+    ]
+  },
+  "Health": {
+    "translation": "Health",
+    "origin": [
+      [
+        "src/index.js",
+        120
+      ]
+    ]
+  },
+  "Taxes": {
+    "translation": "Taxes",
+    "origin": [
+      [
+        "src/index.js",
+        126
+      ]
+    ]
+  },
+  "More services": {
+    "translation": "More services",
+    "origin": [
+      [
+        "src/index.js",
+        132
+      ]
+    ]
+  },
+  "Pay your fees": {
+    "translation": "Pay your fees",
+    "origin": [
+      [
+        "src/index.js",
+        129
+      ]
+    ],
+    "obsolete": true
+  }
+}
