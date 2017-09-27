@@ -1,0 +1,4 @@
+[entryPoints]
+    [entryPoints.http]
+    address = ":80"
+address = ":8080"

@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+cat << 'EOASCII'
+  _____ _____   _____ _____ 
+ |_   _|  __ \ / ____/ ____|
+   | | | |__) | |   | |     
+   | | |  _  /| |   | |     
+  _| |_| | \ \| |___| |____ 
+ |_____|_|  \_\\_____\_____|
+                            
+This script sets up your environment for running the IRCC project.
+EOASCII
+
+if [ ! -d "$HOME/.nodenv" ]; then
+	git clone https://github.com/nodenv/nodenv.git ~/.nodenv
+fi
+
+
+binpath='export PATH="$HOME/.nodenv/bin:$PATH"'
+if ! grep -Fxq "$binpath" "$HOME/.bashrc"; then
+	echo "$binpath" >> "$HOME/.bashrc"
+fi
+
+nodenv_init='eval "$(nodenv init -)"'
+if ! grep -Fxq "$nodenv_init" "$HOME/.bashrc"; then
+	echo "$nodenv_init" >> "$HOME/.bashrc"
+	source "$HOME/.bashrc"
+fi
+
+if [ -d "$HOME/.nodenv" ]; then
+	if [ ! -d "$HOME/.nodenv/plugins/node-build" ]; then
+		git clone https://github.com/nodenv/node-build.git "$HOME/.nodenv/plugins/node-build"
+	fi
+fi
+
+# If nodenv exists we maybe we need to install node
+if command -v nodenv > /dev/null 2>&1; then
+	# install node if it's not there already
+	if ! command -v node > /dev/null 2>&1; then
+		# Hard coding version while waiting for this issue to be resolved:
+		# https://github.com/nodenv/node-build/issues/145
+		nodenv install 8.5.0
+		# generate shims
+		nodenv rehash
+		# set 8.5.0 as the default globally.
+		nodenv global 8.5.0
+	fi
+fi
+
+# If node exists we maybe we need to install some global things
+if command -v node > /dev/null 2>&1; then
+	if ! command -v yarn > /dev/null 2>&1; then
+		npm install --global yarn 
+		nodenv rehash
+	fi
+
+	if ! command -v jest > /dev/null 2>&1; then
+		npm install --global jest
+		nodenv rehash
+	fi
+fi
+
+
+for microservice in ./*; do
+ if [[ ! -d "$microservice" ]] || [[ "${microservice##*/}" = bin ]]; then
+   continue;
+ fi
+
+ echo "installing dependencies for $microservice"
+ (cd "$microservice" && yarn)
+
+done
