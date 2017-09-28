@@ -10,6 +10,15 @@ import Banner from './components/Banner'
 import Footer from './components/Footer'
 import CentredSection from './components/CentredSection'
 import { Button, DownwardChevron } from '@cdssnc/gcui'
+import gql from 'graphql-tag'
+import ApolloClient from 'apollo-client'
+import Link from 'apollo-link-http'
+import Cache from 'apollo-cache-inmemory'
+
+const client = new ApolloClient({
+  link: new Link({ uri: '/graphql' }),
+  cache: new Cache().restore(window.__APOLLO_STATE__),
+})
 
 const dev =
   process.env.NODE_ENV !== 'production' ? require('lingui-i18n/dev') : undefined
@@ -42,16 +51,17 @@ const Category = styled.li`
   border-right: 1px solid #999;
 `
 
-
 class App extends Component {
   constructor() {
     super()
     this.changeLanguage = ::this.changeLanguage
+    this.makePayment = ::this.makePayment
   }
 
   state = {
     lang: 'en',
     catalogs: { en: unpackCatalog(en), fr: unpackCatalog(fr) },
+    payment: {},
   }
 
   changeLanguage() {
@@ -60,6 +70,45 @@ class App extends Component {
     } else {
       this.setState({ lang: 'en' })
     }
+  }
+
+  makePayment() {
+    let mutation = gql`
+      mutation(
+        $expiry: String!
+        $orderID: String!
+        $primaryAccountNumber: PAN!
+        $amount: Float!
+        $description: String!
+      ) {
+        purchase(
+          expiry: $expiry
+          orderID: $orderID
+          primaryAccountNumber: $primaryAccountNumber
+          amount: $amount
+          description: $description
+        ) {
+          receiptID
+          referenceNumber
+          bankTotals
+          responseCode
+          message
+          complete
+          amount
+          timedOut
+        }
+      }
+    `
+    let variables = {
+      expiry: '16/11',
+      orderID: `ircc-${Math.random(5)}`,
+      primaryAccountNumber: '4242424242424242',
+      amount: 1.0,
+      description: 'This is a test purchase',
+    }
+    client.mutate({ mutation, variables }).then(results => {
+      this.setState({ payment: results.data.purchase })
+    })
   }
 
   render() {
@@ -129,7 +178,19 @@ class App extends Component {
           <div>&nbsp;</div>
           <Panel title={<Trans>How to pay your fees</Trans>}>
             <div style={{ padding: '1em 1em' }}>
-              <Button primary onClick={() => window.alert('pretend a payment happened')}>{<Trans>Pay my fees online</Trans>}</Button>
+              <Button primary onClick={this.makePayment}>
+                {<Trans>Pay my fees online</Trans>}
+              </Button>
+            </div>
+            <div>
+              {this.state.payment &&
+                Object.keys(this.state.payment).map((keyName, keyIndex) => {
+                  return (
+                    <p key={keyName}>
+                      {keyName}:{this.state.payment[keyName]}
+                    </p>
+                  )
+                })}
             </div>
           </Panel>
         </CentredSection>
