@@ -1,0 +1,41 @@
+version: '2'
+
+services:
+  proxy:
+    image: traefik
+    command: --docker --docker.domain=docker.localhost --logLevel=DEBUG --defaultentrypoints="Name:http Address::80" --defaultentrypoints='Name:webpack_dev Address::3000 Redirect.EntryPoint:http'
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  web:
+    ports:
+      - "3000"
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    labels:
+      - "traefik.backend=web"
+      - "traefik.frontend.rule=PathPrefix:/"
+      - "traefik.port=3000"
+    volumes:
+      - ./web:/app
+    command: yarn proxied_dev
+  api:
+    environment:
+      - API_TOKEN
+      - API_HOST
+      - STORE_ID
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "3001"
+    volumes:
+      - ./api:/app
+    command: yarn start
+    labels:
+      - "traefik.backend=api"
+      - "traefik.frontend.rule=PathPrefix:/graphql"
+      - "traefik.port=3001"
+

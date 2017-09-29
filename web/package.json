@@ -8,6 +8,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "webpack-dev-server --port=3000",
+    "proxied_dev": "yarn dev --host 0.0.0.0 --public localhost:80",
     "extract": "node node_modules/lingui-cli/dist/lingui-extract.js",
     "compile": "node node_modules/lingui-cli/dist/lingui-compile.js",
     "test": "jest",
