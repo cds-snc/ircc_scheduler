@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# In this case we actually want to continue if yarn build fails.
+#set -eo pipefail
+
+for microservice in ./*; do
+ if [[ ! -d "$microservice" ]] || [[ "${microservice##*/}" = bin ]]; then
+   continue;
+ fi
+
+ echo "installing dependencies for $microservice"
+ (cd "$microservice" && yarn build)
+
+done
+
