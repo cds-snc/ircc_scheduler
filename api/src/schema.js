@@ -51,7 +51,7 @@ const createSchema = t => {
           },
         },
         type: Receipt,
-        resolve: async (source, args, context) => {
+        resolve: async (_, args, context) => {
           let xml = convert.js2xml(
             {
               request: {
@@ -84,7 +84,18 @@ const createSchema = t => {
           )
 
           let text = await response.text()
-          return convert.xml2js(text, { compact: true })
+          let res = convert.xml2js(text, { compact: true })
+
+          // Handles level 2 errors. Refer to:
+          // https://developer.moneris.com/More/Testing/Response%20Handling
+          let { receipt } = res.response
+          if (
+            receipt.Complete._text === 'false' &&
+            receipt.TimedOut._text === 'false'
+          ) {
+            throw new Error(res.response.receipt.Message._text)
+          }
+          return res
         },
       },
     }),
