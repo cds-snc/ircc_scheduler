@@ -1,65 +1,93 @@
 {
-  "Jobs": {
+  "My immigration or citizenship application": {
     "origin": [
       [
         "src/index.js",
-        90
+        127
       ]
     ]
   },
-  "Immigration": {
-    "origin": [
-      [
-        "src/index.js",
-        96
-      ]
-    ]
-  },
-  "Travel": {
-    "origin": [
-      [
-        "src/index.js",
-        102
-      ]
-    ]
-  },
-  "Business": {
-    "origin": [
-      [
-        "src/index.js",
-        108
-      ]
-    ]
-  },
-  "Benefits": {
-    "origin": [
-      [
-        "src/index.js",
-        114
-      ]
-    ]
-  },
-  "Health": {
-    "origin": [
-      [
-        "src/index.js",
-        120
-      ]
-    ]
-  },
-  "Taxes": {
-    "origin": [
-      [
-        "src/index.js",
-        126
-      ]
-    ]
-  },
-  "More services": {
+  "Home": {
     "origin": [
       [
         "src/index.js",
         132
+      ],
+      [
+        "src/index.js",
+        155
+      ]
+    ]
+  },
+  "Fee list": {
+    "origin": [
+      [
+        "src/index.js",
+        135
+      ]
+    ]
+  },
+  "Pay your fees": {
+    "origin": [
+      [
+        "src/index.js",
+        138
+      ]
+    ]
+  },
+  "Fee List": {
+    "origin": [
+      [
+        "src/index.js",
+        162
+      ]
+    ]
+  },
+  "You need to pay a fee for most of our applications. You can find information on fees in the application guides.": {
+    "origin": [
+      [
+        "src/index.js",
+        165
+      ]
+    ]
+  },
+  "temporary_residence": {
+    "origin": [
+      [
+        "src/index.js",
+        172
+      ]
+    ]
+  },
+  "Temporary Residence": {
+    "origin": [
+      [
+        "src/index.js",
+        173
+      ]
+    ]
+  },
+  "Permanent Residence": {
+    "origin": [
+      [
+        "src/index.js",
+        177
+      ]
+    ]
+  },
+  "Family Sponsorship": {
+    "origin": [
+      [
+        "src/index.js",
+        180
+      ]
+    ]
+  },
+  "Please select a topic.": {
+    "origin": [
+      [
+        "src/index.js",
+        188
       ]
     ]
   },
@@ -67,7 +95,7 @@
     "origin": [
       [
         "src/index.js",
-        141
+        202
       ]
     ]
   },
@@ -75,7 +103,7 @@
     "origin": [
       [
         "src/index.js",
-        142
+        205
       ]
     ]
   }

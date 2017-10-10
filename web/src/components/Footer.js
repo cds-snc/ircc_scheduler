@@ -7,6 +7,7 @@ const Branding = styled.footer`
   background: #f8f8f8;
   border-top: 4px solid #335175;
   line-height: 30px;
+  right: 0;
   bottom: 0;
   width: 100%;
   text-align: right;

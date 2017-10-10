@@ -1,0 +1,66 @@
+{
+  "Jobs": {
+    "origin": [
+      [
+        "src/components/Nav.js",
+        41
+      ]
+    ]
+  },
+  "Immigration": {
+    "origin": [
+      [
+        "src/components/Nav.js",
+        47
+      ]
+    ]
+  },
+  "Travel": {
+    "origin": [
+      [
+        "src/components/Nav.js",
+        53
+      ]
+    ]
+  },
+  "Business": {
+    "origin": [
+      [
+        "src/components/Nav.js",
+        59
+      ]
+    ]
+  },
+  "Benefits": {
+    "origin": [
+      [
+        "src/components/Nav.js",
+        65
+      ]
+    ]
+  },
+  "Health": {
+    "origin": [
+      [
+        "src/components/Nav.js",
+        71
+      ]
+    ]
+  },
+  "Taxes": {
+    "origin": [
+      [
+        "src/components/Nav.js",
+        77
+      ]
+    ]
+  },
+  "More services": {
+    "origin": [
+      [
+        "src/components/Nav.js",
+        83
+      ]
+    ]
+  }
+}

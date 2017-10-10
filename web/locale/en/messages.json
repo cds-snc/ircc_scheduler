@@ -1,10 +1,104 @@
 {
+  "Permanent Residence": {
+    "translation": "",
+    "origin": [
+      [
+        "src/index.js",
+        177
+      ]
+    ]
+  },
+  "Family Sponsorship": {
+    "translation": "",
+    "origin": [
+      [
+        "src/index.js",
+        180
+      ]
+    ]
+  },
+  "Please select a topic.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/index.js",
+        188
+      ]
+    ]
+  },
+  "My immigration or citizenship application": {
+    "translation": "",
+    "origin": [
+      [
+        "src/index.js",
+        127
+      ]
+    ]
+  },
+  "Home": {
+    "translation": "",
+    "origin": [
+      [
+        "src/index.js",
+        132
+      ],
+      [
+        "src/index.js",
+        155
+      ]
+    ]
+  },
+  "Fee list": {
+    "translation": "",
+    "origin": [
+      [
+        "src/index.js",
+        135
+      ]
+    ]
+  },
+  "Fee List": {
+    "translation": "",
+    "origin": [
+      [
+        "src/index.js",
+        162
+      ]
+    ]
+  },
+  "You need to pay a fee for most of our applications. You can find information on fees in the application guides.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/index.js",
+        165
+      ]
+    ]
+  },
+  "temporary_residence": {
+    "translation": "",
+    "origin": [
+      [
+        "src/index.js",
+        172
+      ]
+    ]
+  },
+  "Temporary Residence": {
+    "translation": "",
+    "origin": [
+      [
+        "src/index.js",
+        173
+      ]
+    ]
+  },
   "How to pay your fees": {
     "translation": "",
     "origin": [
       [
         "src/index.js",
-        141
+        202
       ]
     ]
   },
@@ -13,7 +107,7 @@
     "origin": [
       [
         "src/index.js",
-        142
+        205
       ]
     ]
   },
@@ -21,8 +115,8 @@
     "translation": "Jobs",
     "origin": [
       [
-        "src/index.js",
-        90
+        "src/components/Nav.js",
+        41
       ]
     ]
   },
@@ -30,8 +124,8 @@
     "translation": "Immigration",
     "origin": [
       [
-        "src/index.js",
-        96
+        "src/components/Nav.js",
+        47
       ]
     ]
   },
@@ -39,8 +133,8 @@
     "translation": "Travel",
     "origin": [
       [
-        "src/index.js",
-        102
+        "src/components/Nav.js",
+        53
       ]
     ]
   },
@@ -48,8 +142,8 @@
     "translation": "Business",
     "origin": [
       [
-        "src/index.js",
-        108
+        "src/components/Nav.js",
+        59
       ]
     ]
   },
@@ -57,8 +151,8 @@
     "translation": "Benefits",
     "origin": [
       [
-        "src/index.js",
-        114
+        "src/components/Nav.js",
+        65
       ]
     ]
   },
@@ -66,8 +160,8 @@
     "translation": "Health",
     "origin": [
       [
-        "src/index.js",
-        120
+        "src/components/Nav.js",
+        71
       ]
     ]
   },
@@ -75,8 +169,8 @@
     "translation": "Taxes",
     "origin": [
       [
-        "src/index.js",
-        126
+        "src/components/Nav.js",
+        77
       ]
     ]
   },
@@ -84,8 +178,8 @@
     "translation": "More services",
     "origin": [
       [
-        "src/index.js",
-        132
+        "src/components/Nav.js",
+        83
       ]
     ]
   },
@@ -94,9 +188,8 @@
     "origin": [
       [
         "src/index.js",
-        129
+        138
       ]
-    ],
-    "obsolete": true
+    ]
   }
 }

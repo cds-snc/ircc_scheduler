@@ -17,7 +17,7 @@ const Panel = ({ title, width, children }) =>
 Panel.propTypes = {
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   width: PropTypes.string,
-  children: PropTypes.object,
+  children: PropTypes.array,
 }
 
 export default Panel
