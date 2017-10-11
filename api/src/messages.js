@@ -48,6 +48,12 @@ module.exports.default = {
           pan: {
             description: `A Primary Account Number aka: a credit card number`,
           },
+          expiryYear: {
+            description: `The year the card expires in the format YY.`,
+          },
+          expiryMonth: {
+            description: `The month the card expires in the format MM.`,
+          },
         },
         mutation: {
           fields: {
@@ -56,7 +62,8 @@ module.exports.default = {
               args: {
                 description: `Merchant defined description sent on a per-transaction basis that will appear on the credit card statement.`,
                 pan: `A Credit Card Number with no spaces or dashes.`,
-                expiry: `The date the card expires in the format YY/MM.`,
+                expiryYear: `The year the card expires in the format YY.`,
+                expiryMonth: `The month the card expires in the format MM.`,
                 amount: `The amount of the the transaction.`,
                 orderID: `A merchant defined unique transaction identifier - must be unique for every Purchase, PreAuth and Independent Refund attempt.`,
               },
@@ -111,6 +118,12 @@ module.exports.default = {
           pan: {
             description: `Un numéro de compte principal, également connu sous le nom de numéro de carte de crédit`,
           },
+          expiryYear: {
+            description: `L'année à laquelle la carte expire au format YY`,
+          },
+          expiryMonth: {
+            description: `Le mois auquel la carte expire au format MM`,
+          },
         },
         mutation: {
           fields: {
@@ -119,7 +132,8 @@ module.exports.default = {
               args: {
                 description: `La description définie par le marchant est envoyée par transaction qui apparaissent sur le relevé de carte de crédit.`,
                 pan: `Un numéro de carte de crédit sans espaces ni tirets.`,
-                expiry: `La date à laquelle la carte expire au format YY/MM.`,
+                expiryYear: `L'année à laquelle la carte expire au format YY.`,
+                expiryMonth: `Le mois auquel la carte expire au format MM.`,
                 amount: `Le montant de la transaction.`,
                 orderID: `Un identificateur de transaction unique défini par le commerçant - doit être unique pour chaque tentative d'achat, de pré-autorisation et de remboursement indépendant.`,
               },

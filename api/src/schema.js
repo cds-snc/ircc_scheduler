@@ -10,6 +10,8 @@ const convert = require('xml-js')
 const createSchema = t => {
   const Receipt = require('./types/Receipt').default(t)
   const PAN = require('./types/PAN').default(t)
+  const ExpiryYear = require('./types/ExpiryYear').default(t)
+  const ExpiryMonth = require('./types/ExpiryMonth').default(t)
 
   // XXX: Is it not possible to have a mutation only schema?
   var query = new GraphQLObjectType({
@@ -29,9 +31,13 @@ const createSchema = t => {
       purchase: {
         description: t('mutation.fields.purchase.description'),
         args: {
-          expiry: {
-            description: t('mutation.fields.purchase.args.expiry'),
-            type: new GraphQLNonNull(GraphQLString),
+          expiryYear: {
+            description: t('mutation.fields.purchase.args.expiryYear'),
+            type: new GraphQLNonNull(ExpiryYear),
+          },
+          expiryMonth: {
+            description: t('mutation.fields.purchase.args.expiryMonth'),
+            type: new GraphQLNonNull(ExpiryMonth),
           },
           description: {
             description: t('mutation.fields.purchase.args.description'),
@@ -61,7 +67,7 @@ const createSchema = t => {
                   order_id: { _text: args.orderID },
                   amount: { _text: args.amount.toFixed(2) },
                   pan: { _text: args.primaryAccountNumber },
-                  expdate: { _text: args.expiry.replace('/', '') },
+                  expdate: { _text: args.expiryYear + args.expiryMonth },
                   dynamic_description: { _text: args.description },
                   crypt_type: { _text: '7' }, // SSL-enabled vendor
                   cust_id: { _text: 'cust 1' },

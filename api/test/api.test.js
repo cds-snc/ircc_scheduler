@@ -106,7 +106,7 @@ describe('GraphQL API', () => {
       var [purchase, ..._] = mutationType.fields
       var [expiry, ..._] = purchase.args // expiry is the first argument
       expect(expiry.description).toEqual(
-        fr('mutation.fields.purchase.args.expiry'),
+        fr('mutation.fields.purchase.args.expiryYear'),
       )
     })
 
@@ -153,7 +153,8 @@ describe('GraphQL API', () => {
               purchase(
                 amount: 1.00
                 orderID: "${'ircc' + Math.random()}"
-                expiry: "16/11"
+                expiryYear: "17"
+                expiryMonth: "11"
                 description: "INVOICE001"
                 primaryAccountNumber: "4242424242424242"
               ){
@@ -184,9 +185,74 @@ describe('GraphQL API', () => {
               purchase(
                 amount: 1.00
                 orderID: "${'ircc' + Math.random()}"
-                expiry: "16/11"
+                expiryYear: "17"
+                expiryMonth: "11"
                 description: "INVOICE001"
                 primaryAccountNumber: "1324567891011121"
+              ){
+                message 
+               }
+            }
+        `)
+        let { errors } = response.body
+        expect(errors[0].message).toMatch(/invalid value/)
+      })
+
+      it('rejects bad credit card expiry year', async () => {
+        let app = Server({
+          fetch: jest.fn(() => {
+            return Promise.resolve({
+              text: jest.fn(() => Promise.resolve(purchaseResponse)),
+            })
+          }),
+          apiToken: 'yesguy',
+          apiHost: 'esqa.moneris.com',
+          storeID: 'store3',
+        })
+
+        let response = await request(app)
+          .post('/graphql')
+          .set('Content-Type', 'application/graphql; charset=utf-8').send(`
+            mutation {
+              purchase(
+                amount: 1.00
+                orderID: "${'ircc' + Math.random()}"
+                expiryYear: "14"
+                expiryMonth: "11"
+                description: "INVOICE001"
+                primaryAccountNumber: "4242424242424242"
+              ){
+                message 
+               }
+            }
+        `)
+        let { errors } = response.body
+        expect(errors[0].message).toMatch(/invalid value/)
+      })
+
+      it('rejects bad credit card expiry month', async () => {
+        let app = Server({
+          fetch: jest.fn(() => {
+            return Promise.resolve({
+              text: jest.fn(() => Promise.resolve(purchaseResponse)),
+            })
+          }),
+          apiToken: 'yesguy',
+          apiHost: 'esqa.moneris.com',
+          storeID: 'store3',
+        })
+
+        let response = await request(app)
+          .post('/graphql')
+          .set('Content-Type', 'application/graphql; charset=utf-8').send(`
+            mutation {
+              purchase(
+                amount: 1.00
+                orderID: "${'ircc' + Math.random()}"
+                expiryYear: "17"
+                expiryMonth: "23"
+                description: "INVOICE001"
+                primaryAccountNumber: "4242424242424242"
               ){
                 message 
                }
@@ -215,7 +281,8 @@ describe('GraphQL API', () => {
               purchase(
                 amount: 1.00
                 orderID: "1" # An already used orderID
-                expiry: "16/11"
+                expiryYear: "17"
+                expiryMonth: "11"
                 description: "INVOICE001"
                 primaryAccountNumber: "4242424242424242"
               ){
