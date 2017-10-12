@@ -189,14 +189,16 @@ class Wizard extends Component {
   pay() {
     let mutation = gql`
       mutation(
-        $expiry: String!
+        $expiryYear: ExpiryYear!
+        $expiryMonth: ExpiryMonth!
         $orderID: String!
         $primaryAccountNumber: PAN!
         $amount: Float!
         $description: String!
       ) {
         purchase(
-          expiry: $expiry
+          expiryYear: $expiryYear
+          expiryMonth: $expiryMonth
           orderID: $orderID
           primaryAccountNumber: $primaryAccountNumber
           amount: $amount
@@ -214,7 +216,8 @@ class Wizard extends Component {
       }
     `
     let variables = {
-      expiry: '16/11',
+      expiryYear: '17',
+      expiryMonth: '11',
       orderID: `ircc-${Math.random(5)}`,
       primaryAccountNumber: '4242424242424242',
       amount: 1.0,
