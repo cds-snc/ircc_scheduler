@@ -14,12 +14,12 @@ import CentredSection from './components/CentredSection'
 import { Button } from '@cdssnc/gcui'
 import gql from 'graphql-tag'
 import ApolloClient from 'apollo-client'
-import ApolloLink from 'apollo-link-http'
+import {HttpLink} from 'apollo-link-http'
 import Cache from 'apollo-cache-inmemory'
 import Nav from './components/Nav'
 
 const client = new ApolloClient({
-  link: new ApolloLink({ uri: '/graphql' }),
+  link: new HttpLink({ uri: '/graphql' }),
   cache: new Cache().restore(window.__APOLLO_STATE__),
 })
 

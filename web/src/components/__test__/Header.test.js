@@ -1,7 +1,10 @@
 import React from 'react'
-import { mount, shallow } from 'enzyme'
+import { mount, shallow, configure } from 'enzyme'
 import toJSON from 'enzyme-to-json'
 import Header from '../Header'
+import Adapter from 'enzyme-adapter-react-16'
+
+configure({ adapter: new Adapter() })
 
 describe('<Header />', () => {
   it('can be rendered', () => {

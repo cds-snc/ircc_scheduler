@@ -1,8 +1,11 @@
 import React from 'react'
-import { mount, shallow } from 'enzyme'
+import { mount, shallow, configure } from 'enzyme'
 import toJSON from 'enzyme-to-json'
 import 'jest-styled-components'
 import Panel from '../Panel'
+import Adapter from 'enzyme-adapter-react-16'
+
+configure({ adapter: new Adapter() })
 
 describe('<Panel />', () => {
   it('can be rendered', () => {

@@ -1,7 +1,10 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { mount, configure } from 'enzyme'
 import 'jest-styled-components'
 import Title from '../Title'
+import Adapter from 'enzyme-adapter-react-16'
+
+configure({ adapter: new Adapter() })
 
 describe('<Title />', () => {
   it('can be rendered', () => {
