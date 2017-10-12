@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 import Container from './Container'
 import Header from './Header'
 
@@ -17,7 +17,7 @@ const Panel = ({ title, width, children }) =>
 Panel.propTypes = {
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   width: PropTypes.string,
-  children: PropTypes.array,
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 }
 
 export default Panel

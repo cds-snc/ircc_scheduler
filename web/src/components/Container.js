@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'react-emotion'
 
 const Container = styled.div`
   width: ${props => (props.width ? props.width : '100%')};

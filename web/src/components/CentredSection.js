@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'react-emotion'
 import PropTypes from 'prop-types'
 
 const CentredSection = styled.section`

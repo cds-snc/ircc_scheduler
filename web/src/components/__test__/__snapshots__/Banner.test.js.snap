@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Banner /> can be rendered 1`] = `
-<styled.div>
-  <styled.div>
-    <styled.a
+<Styled(div)>
+  <Styled(div)>
+    <Styled(a)
       onClick={[Function]}
     >
       Français
-    </styled.a>
-  </styled.div>
-  <styled.div>
+    </Styled(a)>
+  </Styled(div)>
+  <Styled(div)>
     <Wordmark
       width="26em"
     />
-  </styled.div>
-</styled.div>
+  </Styled(div)>
+</Styled(div)>
 `;

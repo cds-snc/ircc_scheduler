@@ -1,8 +1,6 @@
-
 import React from 'react'
 import { shallow } from 'enzyme'
 import toJSON from 'enzyme-to-json'
-import 'jest-styled-components'
 import CentredSection from '../CentredSection'
 
 describe('<CentredSection />', () => {
@@ -12,7 +10,7 @@ describe('<CentredSection />', () => {
   })
 
   it('accepts a width', () => {
-    let wrapper = shallow(<CentredSection width="1000%"/>)
-    expect(toJSON(wrapper)).toHaveStyleRule('width', '1000%')
+    let wrapper = shallow(<CentredSection width="1000%" />)
+    expect(toJSON(wrapper)).toMatchSnapshot()
   })
 })

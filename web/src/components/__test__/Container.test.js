@@ -1,7 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import toJSON from 'enzyme-to-json'
-import 'jest-styled-components'
 import Container from '../Container'
 
 describe('<Container />', () => {
@@ -12,6 +11,6 @@ describe('<Container />', () => {
 
   it('accepts a width prop', () => {
     let wrapper = shallow(<Container width="1000%" />)
-    expect(toJSON(wrapper)).toHaveStyleRule('width', '1000%')
+    expect(toJSON(wrapper)).toMatchSnapshot()
   })
 })

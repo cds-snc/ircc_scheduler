@@ -1,13 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'react-emotion'
 import { GoCSignature } from '@cdssnc/gcui'
 import PropTypes from 'prop-types'
 
-const Padded = styled.div`padding: 0.8em 0.9em;`
+const Padded = styled('div')`padding: 0.8em 0.9em;`
 
-const AlignedRight = styled.div`text-align: right;`
+const AlignedRight = styled('div')`text-align: right;`
 
-const BannerBody = styled.div`
+const BannerBody = styled('div')`
   margin-right: auto;
   margin-left: auto;
   padding: 15px 1em;
@@ -28,7 +28,7 @@ const BannerBody = styled.div`
   }
 `
 
-const LanguageSwitcher = styled.a`
+const LanguageSwitcher = styled('a')`
   text-decoration: underline;
   color: #284162;
   background-color: none;

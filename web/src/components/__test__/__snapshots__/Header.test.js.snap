@@ -1,9 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Header /> can be rendered 1`] = `
-<styled.div>
-  <styled.h2>
+<Styled(div)>
+  <Styled(h2)>
     Foo
-  </styled.h2>
-</styled.div>
+  </Styled(h2)>
+</Styled(div)>
+`;
+
+exports[`<Header /> has a blue background 1`] = `
+<div
+  className="css-x3v3j7"
+>
+  <Styled(h2)>
+    Foo
+  </Styled(h2)>
+</div>
 `;

@@ -1,13 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CentredSection /> can be rendered 1`] = `
-.c0 {
-  margin-right: auto;
-  margin-left: auto;
-  width: 61%;
-}
-
+exports[`<CentredSection /> accepts a width 1`] = `
 <section
-  className="c0"
+  className="css-p9npw3"
+  width="1000%"
+/>
+`;
+
+exports[`<CentredSection /> can be rendered 1`] = `
+<section
+  className="css-bo00q3"
 />
 `;
