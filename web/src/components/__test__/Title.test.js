@@ -1,6 +1,5 @@
 import React from 'react'
 import { mount, configure } from 'enzyme'
-import 'jest-styled-components'
 import Title from '../Title'
 import Adapter from 'enzyme-adapter-react-16'
 

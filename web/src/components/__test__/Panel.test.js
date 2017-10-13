@@ -1,7 +1,6 @@
 import React from 'react'
 import { mount, shallow, configure } from 'enzyme'
 import toJSON from 'enzyme-to-json'
-import 'jest-styled-components'
 import Panel from '../Panel'
 import Adapter from 'enzyme-adapter-react-16'
 
