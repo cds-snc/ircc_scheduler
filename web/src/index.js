@@ -81,7 +81,7 @@ const FlexContainer = styled.section`
   -ms-flex-pack: center;
 `
 
-const Content = ({ payment }) => (
+const Content = () => (
   <Router>
     <FlexContainer>
       <div>
