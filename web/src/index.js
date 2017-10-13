@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { HashRouter as Router, Route, Link } from 'react-router-dom'
 import { render } from 'react-dom'
-import Panel from './components/Panel'
 import { I18nProvider, Trans } from 'lingui-react'
 import { i18n, unpackCatalog } from 'lingui-i18n'
 import en from '../locale/en/messages.js'
@@ -11,18 +10,10 @@ import styled from 'react-emotion'
 import Banner from './components/Banner'
 import Footer from './components/Footer'
 import CentredSection from './components/CentredSection'
-import { Button } from '@cdssnc/gcui'
-import gql from 'graphql-tag'
-import ApolloClient from 'apollo-client'
-import { HttpLink } from 'apollo-link-http'
-import Cache from 'apollo-cache-inmemory'
 import Nav from './components/Nav'
 import ReactRouterPropTypes from 'react-router-prop-types'
+import MultiStep from './components/MultiStep'
 
-const client = new ApolloClient({
-  link: new HttpLink({ uri: '/graphql' }),
-  cache: new Cache().restore(window.__APOLLO_STATE__),
-})
 
 const TopicNavContainer = styled.nav`
   margin-top: 20px;
@@ -115,7 +106,7 @@ const Content = () => (
       <div style={{ width: '100%' }}>
         <Route exact path="/" component={Home} />
         <Route path="/fee_list" component={FeeList} />
-        <Route path="/payment" component={Wizard} />
+        <Route path="/payment" component={MultiStep} />
       </div>
     </FlexContainer>
   </Router>
@@ -185,82 +176,6 @@ Topic.propTypes = {
   match: ReactRouterPropTypes.match,
 }
 
-class Wizard extends Component {
-  constructor() {
-    super()
-    this.pay = ::this.pay
-  }
-
-  state = {
-    payment: {},
-  }
-
-  pay() {
-    let mutation = gql`
-      mutation(
-        $expiryYear: ExpiryYear!
-        $expiryMonth: ExpiryMonth!
-        $orderID: String!
-        $primaryAccountNumber: PAN!
-        $amount: Float!
-        $description: String!
-      ) {
-        purchase(
-          expiryYear: $expiryYear
-          expiryMonth: $expiryMonth
-          orderID: $orderID
-          primaryAccountNumber: $primaryAccountNumber
-          amount: $amount
-          description: $description
-        ) {
-          receiptID
-          referenceNumber
-          bankTotals
-          responseCode
-          message
-          complete
-          amount
-          timedOut
-        }
-      }
-    `
-    let variables = {
-      expiryYear: '17',
-      expiryMonth: '11',
-      orderID: `ircc-${Math.random(5)}`,
-      primaryAccountNumber: '4242424242424242',
-      amount: 1.0,
-      description: 'This is a test purchase',
-    }
-    client.mutate({ mutation, variables }).then(results => {
-      this.setState({ payment: results.data.purchase })
-    })
-  }
-
-  render() {
-    return (
-      <div id="bar">
-        <h3>Pay your fees</h3>
-        <Panel width="100%" title={<Trans>How to pay your fees</Trans>}>
-          <div style={{ padding: '1em 1em' }}>
-            <Button primary onClick={this.pay}>
-              {<Trans>Pay my fees online</Trans>}
-            </Button>
-          </div>
-          <div>
-            {Object.keys(this.state.payment).map((keyName, keyIndex) => {
-              return (
-                <p key={keyName}>
-                  {keyName}:{this.state.payment[keyName]}
-                </p>
-              )
-            })}
-          </div>
-        </Panel>
-      </div>
-    )
-  }
-}
 
 const dev =
   process.env.NODE_ENV !== 'production' ? require('lingui-i18n/dev') : undefined
