@@ -66,8 +66,7 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-emotion": "^8.0.5",
-    "react-router-dom": "^4.2.2",
-    "styled-components": "^2.2.1"
+    "react-router-dom": "^4.2.2"
   },
   "jest": {
     "verbose": true,
