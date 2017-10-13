@@ -17,6 +17,7 @@ import ApolloClient from 'apollo-client'
 import { HttpLink } from 'apollo-link-http'
 import Cache from 'apollo-cache-inmemory'
 import Nav from './components/Nav'
+import ReactRouterPropTypes from 'react-router-prop-types'
 
 const client = new ApolloClient({
   link: new HttpLink({ uri: '/graphql' }),
@@ -170,11 +171,19 @@ const FeeList = ({ match }) => (
   </div>
 )
 
+FeeList.propTypes = {
+  match: ReactRouterPropTypes.match,
+}
+
 const Topic = ({ match }) => (
   <div>
     <h3>{match.params.topicId}</h3>
   </div>
 )
+
+Topic.propTypes = {
+  match: ReactRouterPropTypes.match,
+}
 
 class Wizard extends Component {
   constructor() {
