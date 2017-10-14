@@ -1,4 +1,4 @@
-FROM node:8.5-alpine
+FROM node:8.6-alpine
 MAINTAINER Mike Williamson <mike.williamson@tbs-sct.gc.ca>
 
 WORKDIR /app
