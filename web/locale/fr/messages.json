@@ -1,10 +1,63 @@
 {
+  "Question 1": {
+    "translation": "Question 1",
+    "origin": [
+      [
+        "src/components/MultiStep.js",
+        19
+      ]
+    ]
+  },
+  "Next": {
+    "translation": "Suivant",
+    "origin": [
+      [
+        "src/components/MultiStep.js",
+        24
+      ],
+      [
+        "src/components/MultiStep.js",
+        37
+      ]
+    ]
+  },
+  "Question 2": {
+    "translation": "Question 2",
+    "origin": [
+      [
+        "src/components/MultiStep.js",
+        31
+      ]
+    ]
+  },
+  "Previous": {
+    "translation": "Précédent",
+    "origin": [
+      [
+        "src/components/MultiStep.js",
+        40
+      ],
+      [
+        "src/components/MultiStep.js",
+        54
+      ]
+    ]
+  },
+  "Question 3": {
+    "translation": "Question 3",
+    "origin": [
+      [
+        "src/components/MultiStep.js",
+        48
+      ]
+    ]
+  },
   "Permanent Residence": {
     "translation": "Résidence permanente",
     "origin": [
       [
         "src/index.js",
-        177
+        142
       ]
     ]
   },
@@ -13,7 +66,7 @@
     "origin": [
       [
         "src/index.js",
-        180
+        147
       ]
     ]
   },
@@ -22,7 +75,7 @@
     "origin": [
       [
         "src/index.js",
-        188
+        158
       ]
     ]
   },
@@ -31,7 +84,7 @@
     "origin": [
       [
         "src/index.js",
-        127
+        83
       ]
     ]
   },
@@ -40,11 +93,11 @@
     "origin": [
       [
         "src/index.js",
-        132
+        89
       ],
       [
         "src/index.js",
-        155
+        118
       ]
     ]
   },
@@ -53,7 +106,7 @@
     "origin": [
       [
         "src/index.js",
-        135
+        94
       ]
     ]
   },
@@ -62,7 +115,7 @@
     "origin": [
       [
         "src/index.js",
-        162
+        126
       ]
     ]
   },
@@ -71,7 +124,7 @@
     "origin": [
       [
         "src/index.js",
-        165
+        129
       ]
     ]
   },
@@ -80,7 +133,7 @@
     "origin": [
       [
         "src/index.js",
-        172
+        136
       ]
     ]
   },
@@ -89,7 +142,7 @@
     "origin": [
       [
         "src/index.js",
-        173
+        137
       ]
     ]
   },
@@ -97,8 +150,8 @@
     "translation": "Comment payer vos frais",
     "origin": [
       [
-        "src/index.js",
-        202
+        "src/components/MultiStep.js",
+        13
       ]
     ]
   },
@@ -106,8 +159,8 @@
     "translation": "Payer mes frais en ligne",
     "origin": [
       [
-        "src/index.js",
-        205
+        "src/components/PaymentButton.js",
+        70
       ]
     ]
   },
@@ -187,8 +240,12 @@
     "translation": "Payez vos frais",
     "origin": [
       [
+        "src/components/MultiStep.js",
+        11
+      ],
+      [
         "src/index.js",
-        138
+        99
       ]
     ]
   }

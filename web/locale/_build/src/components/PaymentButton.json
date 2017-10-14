@@ -1,0 +1,10 @@
+{
+  "Pay my fees online": {
+    "origin": [
+      [
+        "src/components/PaymentButton.js",
+        70
+      ]
+    ]
+  }
+}

@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/index.js",
-        127
+        83
       ]
     ]
   },
@@ -11,11 +11,11 @@
     "origin": [
       [
         "src/index.js",
-        132
+        89
       ],
       [
         "src/index.js",
-        155
+        118
       ]
     ]
   },
@@ -23,7 +23,7 @@
     "origin": [
       [
         "src/index.js",
-        135
+        94
       ]
     ]
   },
@@ -31,7 +31,7 @@
     "origin": [
       [
         "src/index.js",
-        138
+        99
       ]
     ]
   },
@@ -39,7 +39,7 @@
     "origin": [
       [
         "src/index.js",
-        162
+        126
       ]
     ]
   },
@@ -47,7 +47,7 @@
     "origin": [
       [
         "src/index.js",
-        165
+        129
       ]
     ]
   },
@@ -55,7 +55,7 @@
     "origin": [
       [
         "src/index.js",
-        172
+        136
       ]
     ]
   },
@@ -63,7 +63,7 @@
     "origin": [
       [
         "src/index.js",
-        173
+        137
       ]
     ]
   },
@@ -71,7 +71,7 @@
     "origin": [
       [
         "src/index.js",
-        177
+        142
       ]
     ]
   },
@@ -79,7 +79,7 @@
     "origin": [
       [
         "src/index.js",
-        180
+        147
       ]
     ]
   },
@@ -87,23 +87,7 @@
     "origin": [
       [
         "src/index.js",
-        188
-      ]
-    ]
-  },
-  "How to pay your fees": {
-    "origin": [
-      [
-        "src/index.js",
-        202
-      ]
-    ]
-  },
-  "Pay my fees online": {
-    "origin": [
-      [
-        "src/index.js",
-        205
+        158
       ]
     ]
   }
