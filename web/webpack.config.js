@@ -12,6 +12,7 @@ module.exports = env => {
     plugins: [
       new HtmlWebpackPlugin({
         template: require('html-webpack-template'),
+        title: 'IRCC',
         appMountId: 'app',
       }),
     ],
