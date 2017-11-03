@@ -1,8 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`<Container /> accepts a width prop 1`] = `
-<div
-  className="css-h9q2h6"
-  width="1000%"
-/>
-`;

@@ -1,4 +1,0 @@
-{
-  "presets": ["env", "react", "lingui-react"],
-  "plugins": ["emotion", "transform-class-properties", "transform-export-extensions", "transform-function-bind"]
-}
