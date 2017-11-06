@@ -8,31 +8,29 @@ services:
       - "80:80"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /dev/null:/traefik.toml
-  web:
-    image: cdssnc/ircc_frontend
+  ui:
+    image: cdssnc/scheduler_ui
     ports:
       - 3000
     build:
-      context: ./web
+      context: ./ui
       dockerfile: Dockerfile
     labels:
-      - "traefik.backend=ircc_frontend"
+      - "traefik.backend=ui"
       - "traefik.frontend.rule=PathPrefix:/"
       - "traefik.port=3000"
   api:
     environment:
-      - API_TOKEN
-      - API_HOST
-      - STORE_ID
-    image: cdssnc/ircc_backend
+      - IRCC_RECEIVING_ADDRESS
+      - SENDGRID_API_KEY
+    image: cdssnc/scheduler_api
     build:
       context: ./api
       dockerfile: Dockerfile
     ports:
       - 3001
     labels:
-      - "traefik.backend=ircc_backend"
+      - "traefik.backend=api"
       - "traefik.frontend.rule=PathPrefix:/graphql"
       - "traefik.port=3001"
 

@@ -23,9 +23,8 @@ services:
     command: yarn start
   api:
     environment:
-      - API_TOKEN
-      - API_HOST
-      - STORE_ID
+      - IRCC_RECEIVING_ADDRESS
+      - SENDGRID_API_KEY
     build:
       context: ./api
       dockerfile: Dockerfile
