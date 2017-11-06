@@ -14,6 +14,7 @@ const detector = new LanguageDetector(
 i18next.init(messages)
 
 const Server = context => {
+  // TODO: Throw if no mailer and receivingAddress 
   return express().use(
     '/graphql',
     graphqlHTTP((request, response) => {

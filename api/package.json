@@ -1,7 +1,7 @@
 {
-  "name": "ircc_backend",
+  "name": "sheduler_api",
   "version": "1.0.0",
-  "description": "The backend API for IRCC",
+  "description": "The backend API for IRCC scheduler",
   "main": "index.js",
   "author": "Mike Williamson <mike.williamson@tbs-sct.gc.ca>",
   "license": "MIT",
@@ -31,13 +31,12 @@
     "supertest": "^3.0.0"
   },
   "dependencies": {
-    "card-validator": "^4.1.0",
+    "@sendgrid/mail": "^6.1.4",
     "express": "^4.15.4",
     "express-graphql": "^0.6.7",
     "graphql": "^0.10.5",
     "graphql-tag": "^2.4.2",
-    "i18next-express-middleware": "^1.0.5",
-    "xml-js": "^1.4.1"
+    "i18next-express-middleware": "^1.0.5"
   },
   "jest": {
     "verbose": true,

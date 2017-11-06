@@ -1,11 +1,11 @@
-const fetch = require('isomorphic-fetch')
+const sgMail = require('@sendgrid/mail')
 const Server = require('./src/server').default
 
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+
 const server = Server({
-  fetch,
-  apiToken: process.env.API_TOKEN,
-  apiHost: process.env.API_HOST,
-  storeID: process.env.STORE_ID,
+  mailer: sgMail,
+  receivingAddress: process.env.IRCC_RECEIVING_ADDRESS,
 })
 
 server.listen(3001)
