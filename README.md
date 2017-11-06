@@ -1,4 +1,4 @@
-# IRCC
+# IRCC Scheduler
 
 This is a mono-repo that contains the IRCC's various microservices.
 
