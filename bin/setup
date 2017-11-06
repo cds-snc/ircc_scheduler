@@ -40,11 +40,11 @@ if command -v nodenv > /dev/null 2>&1; then
 	if ! command -v node > /dev/null 2>&1; then
 		# Hard coding version while waiting for this issue to be resolved:
 		# https://github.com/nodenv/node-build/issues/145
-		nodenv install 8.5.0
+		nodenv install 8.9.0
 		# generate shims
 		nodenv rehash
-		# set 8.5.0 as the default globally.
-		nodenv global 8.5.0
+		# set 8.9.0 as the default globally.
+		nodenv global 8.9.0
 	fi
 fi
 
