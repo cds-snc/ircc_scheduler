@@ -7,6 +7,16 @@ import createHistory from 'history/createBrowserHistory'
 import AppContainer from 'react-hot-loader/lib/AppContainer'
 import App from './components/App'
 import configureStore from './configureStore'
+import { ApolloClient } from 'apollo-client'
+import { HttpLink } from 'apollo-link-http'
+import { InMemoryCache } from 'apollo-cache-inmemory'
+import { ApolloProvider } from 'react-apollo'
+
+const client = new ApolloClient({
+  link: new HttpLink({ uri: '/graphql' }),
+  cache: new InMemoryCache(),
+  ssrMode: true,
+})
 
 const history = createHistory()
 const { store } = configureStore(history, window.REDUX_STATE)
@@ -15,12 +25,14 @@ const render = App => {
   const root = document.getElementById('root')
 
   ReactDOM.hydrate(
-    <AppContainer>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </AppContainer>,
-    root
+    <ApolloProvider client={client}>
+      <AppContainer>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </AppContainer>
+    </ApolloProvider>,
+    root,
   )
 }
 
