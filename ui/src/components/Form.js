@@ -22,7 +22,7 @@ const SimpleForm = props => {
       </div>
       <div>
         <label htmlFor="reason">
-          Notes
+          Reason
           <div>
             <Field
               id="reason"
