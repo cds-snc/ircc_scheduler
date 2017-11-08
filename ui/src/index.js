@@ -2,21 +2,23 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { hydrate } from 'emotion'
 import { Provider } from 'react-redux'
 import createHistory from 'history/createBrowserHistory'
 import AppContainer from 'react-hot-loader/lib/AppContainer'
-import App from './components/App'
 import configureStore from './configureStore'
 import { ApolloClient } from 'apollo-client'
 import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloProvider } from 'react-apollo'
+import App from './components/App'
 
 const client = new ApolloClient({
   link: new HttpLink({ uri: '/graphql' }),
   cache: new InMemoryCache(),
   ssrMode: true,
 })
+hydrate(window.EMOTION_HYDRATION_IDS)
 
 const history = createHistory()
 const { store } = configureStore(history, window.REDUX_STATE)
@@ -32,7 +34,7 @@ const render = App => {
         </Provider>
       </AppContainer>
     </ApolloProvider>,
-    root,
+    root
   )
 }
 

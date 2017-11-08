@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/server'
 import { Provider } from 'react-redux'
 import { flushChunkNames } from 'react-universal-component/server'
 import flushChunks from 'webpack-flush-chunks'
+import { extractCritical } from 'emotion-server'
 import configureStore from './configureStore'
 import App from '../src/components/App'
 import { ApolloClient } from 'apollo-client'
@@ -23,7 +24,7 @@ export default ({ clientStats }) => async (req, res, next) => {
   if (!store) return // no store means redirect was already served
 
   const app = createApp(App, store)
-  const appString = ReactDOM.renderToString(app)
+  const { html, ids, css } = extractCritical(ReactDOM.renderToString(app))
   const state = store.getState()
   const stateJson = JSON.stringify(state)
   const chunkNames = flushChunkNames()
@@ -39,15 +40,21 @@ export default ({ clientStats }) => async (req, res, next) => {
           <meta charset="utf-8">
           <title>${state.title}</title>
           ${styles}
+          <style type="text/css">
+           ${css}
+          </style>
         </head>
         <body>
-          <script>window.REDUX_STATE = ${stateJson}</script>
-          <div id="root">${appString}</div>
+          <script>
+            window.REDUX_STATE = ${stateJson}
+            window.EMOTION_HYDRATION_IDS = ${JSON.stringify(ids)}
+          </script>
+          <div id="root">${html}</div>
           ${cssHash}
           <script type='text/javascript' src='/static/vendor.js'></script>
           ${js}
         </body>
-      </html>`,
+      </html>`
   )
 }
 
