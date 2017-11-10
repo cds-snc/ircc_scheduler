@@ -3,13 +3,14 @@ version: '2'
 services:
   proxy:
     image: traefik
-    command: --docker --docker.domain=docker.localhost --logLevel=INFO
+    command: --docker --docker.domain=docker.localhost --logLevel=DEBUG --defaultentrypoints="Name:http Address::80" --defaultentrypoints='Name:ui Address::3000 Redirect.EntryPoint:http'
     ports:
       - "80:80"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
   ui:
     image: cdssnc/scheduler_ui
+    command: yarn serve
     ports:
       - 3000
     build:
