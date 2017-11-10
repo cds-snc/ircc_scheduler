@@ -6,4 +6,4 @@ USER node
 ADD . .
 
 EXPOSE 3000
-CMD yarn start:prod
+CMD yarn serve
