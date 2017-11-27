@@ -38,6 +38,7 @@ export default ({ clientStats }) => async (req, res, next) => {
       <html>
         <head>
           <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
           <title>${state.title}</title>
           ${styles}
           <style type="text/css">
@@ -54,7 +55,7 @@ export default ({ clientStats }) => async (req, res, next) => {
           <script type='text/javascript' src='/static/vendor.js'></script>
           ${js}
         </body>
-      </html>`
+      </html>`,
   )
 }
 

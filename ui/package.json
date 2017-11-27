@@ -20,13 +20,15 @@
     "format": "prettier --single-quote --semi=false --write '{src,server,webpack}/**/*.js' && npm run lint"
   },
   "dependencies": {
+    "@cdssnc/gcui": "^0.0.12",
     "apollo-cache-inmemory": "^1.1.0",
     "apollo-client": "^2.0.2",
     "apollo-link-http": "^1.1.0",
     "babel-polyfill": "^6.23.0",
-    "emotion": "^8.0.10",
-    "emotion-server": "^8.0.10",
+    "emotion": "^8.0.11",
+    "emotion-server": "^8.0.11",
     "express": "^4.15.2",
+    "facepaint": "^1.1.2",
     "graphql": "^0.11.7",
     "graphql-tag": "^2.5.0",
     "history": "^4.6.3",
