@@ -73,7 +73,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "extract-css-chunks-webpack-plugin": "^2.0.15",
     "husky": "^0.14.3",
-    "lint-staged": "^4.3.0",
+    "lint-staged": "^5.0.0",
     "prettier": "^1.4.4",
     "react-hot-loader": "^3.1.1",
     "rimraf": "^2.6.1",
