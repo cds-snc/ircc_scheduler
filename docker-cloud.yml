@@ -1,0 +1,27 @@
+proxy:
+  image: traefik
+  command: --docker --docker.domain=docker.localhost --logLevel=DEBUG --defaultentrypoints="Name:http Address::80" --defaultentrypoints='Name:ui Address::3000 Redirect.EntryPoint:http'
+  ports:
+    - "80:80"
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+ui:
+  image: cdssnc/scheduler_ui
+  ports:
+    - "3000"
+  labels:
+    - "traefik.backend=ui"
+    - "traefik.frontend.rule=PathPrefix:/"
+    - "traefik.port=3000"
+api:
+  environment:
+    - IRCC_RECEIVING_ADDRESS
+    - SENDGRID_API_KEY
+  image: cdssnc/scheduler_api
+  ports:
+    - "3001"
+  labels:
+    - "traefik.backend=api"
+    - "traefik.frontend.rule=PathPrefix:/graphql"
+    - "traefik.port=3001"
+
