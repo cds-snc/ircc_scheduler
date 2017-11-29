@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { withApollo } from 'react-apollo'
 import Form from './Form'
 import gql from 'graphql-tag'
+import { Trans } from 'lingui-react'
 
 import styles from '../css/Home'
 
@@ -41,10 +42,14 @@ class Home extends Component {
   render() {
     return (
       <div className={styles.home}>
-        <h1 className={styles.title}>HOME</h1>
+        <h1 className={styles.title}>
+          <Trans>HOME</Trans>
+        </h1>
 
         <div className={styles.content}>
-          <p>Content</p>
+          <p>
+            <Trans>Content</Trans>
+          </p>
           <Form onSubmit={this.handleFormData} />
         </div>
       </div>
