@@ -102,7 +102,6 @@
     ]
   },
   "lint-staged": {
-    "gitDir": "../",
     "linters": {
       "*.js": [
         "prettier --single-quote --semi=false --write",
