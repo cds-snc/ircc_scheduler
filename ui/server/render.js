@@ -55,7 +55,7 @@ export default ({ clientStats }) => async (req, res, next) => {
           <script type='text/javascript' src='/static/vendor.js'></script>
           ${js}
         </body>
-      </html>`,
+      </html>`
   )
 }
 

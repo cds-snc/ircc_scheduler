@@ -1,0 +1,29 @@
+{
+  "Home": {
+    "translation": "Page d'accueil",
+    "origin": [
+      [
+        "src/components/Sidebar.js",
+        13
+      ]
+    ]
+  },
+  "Thank you": {
+    "translation": "Merci",
+    "origin": [
+      [
+        "src/components/Sidebar.js",
+        17
+      ]
+    ]
+  },
+  "HOME": {
+    "translation": "Page d'accueil",
+    "origin": [
+      [
+        "src/components/Home.js",
+        45
+      ]
+    ]
+  }
+}
