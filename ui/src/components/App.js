@@ -27,7 +27,7 @@ const App = props => {
   return (
     <I18nProvider language={lang} catalogs={catalogs} development={dev}>
       <div>
-        <Banner lang="en" changeLanguage={() => 'en'} />
+        <Banner lang={lang} />
         <Switcher />
       </div>
     </I18nProvider>

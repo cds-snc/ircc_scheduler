@@ -3,6 +3,7 @@ import styled from 'react-emotion'
 import PropTypes from 'prop-types'
 import SignatureBlock from './SignatureBlock'
 import facepaint from 'facepaint'
+import LanguageSwitcher from './LanguageSwitcher'
 
 const mq = facepaint([
   '@media(min-width: 420px)',
@@ -28,23 +29,6 @@ const BannerBody = styled('div')`
   }
 `
 
-const LanguageSwitcher = styled('a')`
-  text-decoration: underline;
-  position: relative;
-  top: 1em;
-  right: 0.3em;
-  font-family: Helvetica, Arial, sans-serif;
-  color: #284162;
-  padding: 1em 1em;
-  background-color: none;
-  &:visited {
-    color: #7834bc;
-  }
-  &:hover {
-    cursor: pointer;
-  }
-`
-
 const Hr = styled('hr')`
   color: #335075;
   background-color: #335075;
@@ -57,15 +41,13 @@ const Box = styled('div')`
   padding: 0em 1em;
 `
 
-const Banner = ({ lang, changeLanguage }) => (
+const Banner = ({ lang }) => (
   <BannerBody>
     <Box>
       <AlignedRight>
-        <LanguageSwitcher onClick={changeLanguage}>
-          {lang === 'en' ? 'Français' : 'English'}
-        </LanguageSwitcher>
+        <LanguageSwitcher />
       </AlignedRight>
-      <SignatureBlock />
+      <SignatureBlock lang={lang} />
     </Box>
     <Hr />
   </BannerBody>
@@ -73,7 +55,6 @@ const Banner = ({ lang, changeLanguage }) => (
 
 Banner.propTypes = {
   lang: PropTypes.string.isRequired,
-  changeLanguage: PropTypes.func.isRequired,
 }
 
 export default Banner
