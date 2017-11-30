@@ -17,7 +17,9 @@
     "precommit": "lint-staged",
     "cm": "git-cz",
     "lint": "eslint src server webpack",
-    "format": "prettier --single-quote --semi=false --write '{src,server,webpack}/**/*.js' && npm run lint"
+    "format": "prettier --single-quote --semi=false --write '{src,server,webpack}/**/*.js' && npm run lint",
+    "test": "jest",
+    "test:watch": "npm test -- --watch"
   },
   "dependencies": {
     "@cdssnc/gcui": "^0.0.12",
@@ -51,6 +53,7 @@
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
     "babel-eslint": "^8.0.1",
+    "babel-jest": "^21.2.0",
     "babel-loader": "^7.1.1",
     "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
@@ -66,6 +69,7 @@
     "cross-env": "^5.0.1",
     "css-loader": "^0.28.7",
     "cz-conventional-changelog": "^2.0.0",
+    "enzyme": "^3.2.0",
     "eslint": "^4.9.0",
     "eslint-config-prettier": "^2.7.0",
     "eslint-config-standard": "^10.2.1",
@@ -78,6 +82,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "extract-css-chunks-webpack-plugin": "^2.0.15",
     "husky": "^0.14.3",
+    "jest": "^21.2.1",
     "lint-staged": "^5.0.0",
     "prettier": "^1.4.4",
     "react-hot-loader": "^3.1.1",
