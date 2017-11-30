@@ -47,7 +47,7 @@ const Banner = ({ lang }) => (
       <AlignedRight>
         <LanguageSwitcher />
       </AlignedRight>
-      <SignatureBlock />
+      <SignatureBlock lang={lang} />
     </Box>
     <Hr />
   </BannerBody>

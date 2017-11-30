@@ -20,7 +20,7 @@
     "format": "prettier --single-quote --semi=false --write '{src,server,webpack}/**/*.js' && npm run lint"
   },
   "dependencies": {
-    "@cdssnc/gcui": "^0.0.12",
+    "@cdssnc/gcui": "^0.0.14",
     "apollo-cache-inmemory": "^1.1.0",
     "apollo-client": "^2.0.2",
     "apollo-link-http": "^1.1.0",
