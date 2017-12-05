@@ -2,35 +2,47 @@ version: '2'
 
 services:
   proxy:
-    image: traefik
-    command: --docker --docker.domain=docker.localhost --logLevel=DEBUG --defaultentrypoints="Name:http Address::80" --defaultentrypoints='Name:ui Address::3000 Redirect.EntryPoint:http'
+    image: traefik:1.5
+    command: >
+      --docker
+      --debug
+      --logLevel=DEBUG
+      --acme
+      --acme.domains='rescheduler.cds-snc.ca'
+      --acme.acmelogging
+      --acme.email='mike.williamson@tbs-sct.gc.ca'
+      --entrypoints="Name:http Address::80 Redirect.EntryPoint:https"
+      --entrypoints='Name:https Address::443 TLS'
+      --acme.onhostrule
+      --acme.entrypoint='https'
+      --acme.storage='certificates/acme.json'
+      --retry
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - ./proxy/certificates:/certificates
   ui:
     image: cdssnc/scheduler_ui
     ports:
-      - 3000
-    build:
-      context: ./ui
-      dockerfile: Dockerfile
+      - "3000"
     labels:
       - "traefik.backend=ui"
+      - "traefik.frontend.rule=Host:ui.rescheduler.cds-snc.ca"
       - "traefik.frontend.rule=PathPrefix:/"
+      - "traefik.frontend.entryPoints=http,https"
       - "traefik.port=3000"
   api:
     environment:
       - IRCC_RECEIVING_ADDRESS
       - SENDGRID_API_KEY
     image: cdssnc/scheduler_api
-    build:
-      context: ./api
-      dockerfile: Dockerfile
     ports:
-      - 3001
+      - "3001"
     labels:
       - "traefik.backend=api"
       - "traefik.frontend.rule=PathPrefix:/graphql"
+      - "traefik.frontend.entryPoints=http,https"
       - "traefik.port=3001"
 
