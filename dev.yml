@@ -3,7 +3,7 @@ version: '2'
 services:
   proxy:
     image: traefik
-    command: --docker --docker.domain=docker.localhost --logLevel=DEBUG --defaultentrypoints="Name:http Address::80" --defaultentrypoints='Name:ui Address::3000 Redirect.EntryPoint:http'
+    command: --docker --debug --logLevel=DEBUG
     ports:
       - "80:80"
     volumes:
@@ -17,6 +17,7 @@ services:
     labels:
       - "traefik.backend=ui"
       - "traefik.frontend.rule=PathPrefix:/"
+      - "traefik.frontend.entryPoints=http"
       - "traefik.port=3000"
     volumes:
       - ./ui:/app
@@ -36,5 +37,6 @@ services:
     labels:
       - "traefik.backend=api"
       - "traefik.frontend.rule=PathPrefix:/graphql"
+      - "traefik.frontend.entryPoints=http"
       - "traefik.port=3001"
 
