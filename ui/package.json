@@ -16,8 +16,8 @@
     "clean": "rimraf buildClient buildServer",
     "precommit": "lint-staged",
     "cm": "git-cz",
-    "lint": "eslint src server webpack",
-    "format": "prettier --single-quote --semi=false --write '{src,server,webpack}/**/*.js' && npm run lint",
+    "lint": "eslint test src server webpack",
+    "format": "prettier --write '{src,server,webpack}/**/*.js' && npm run lint",
     "test": "jest",
     "test:watch": "npm test -- --watch"
   },
@@ -109,7 +109,7 @@
   "lint-staged": {
     "linters": {
       "*.js": [
-        "prettier --single-quote --semi=false --write",
+        "prettier --write",
         "eslint --fix",
         "git add"
       ]
