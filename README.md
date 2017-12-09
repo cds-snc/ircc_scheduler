@@ -11,7 +11,7 @@ make dev # run it in development mode
 
 ## Running the tests
 
-Each microservice has it's own test suite. To run the tests for all the microservices you can run
+Each microservice has its own test suite. To run the tests for all the microservices you can run
 ```sh
 make test
 ```
